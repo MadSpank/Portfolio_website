@@ -1,10 +1,21 @@
 import React from 'react';
+import { Element, scroller } from 'react-scroll';
+
 import { Grid, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 import Avatar from '../static/avatar.jpg';
 
-import Header from './Header'
+import Header from '../components/Header'
+
+import {
+	PAGE_ANCHORS,
+	NAVIGATION_BUTTONS,
+	PAGE_MENU_HEIGHT,
+	MIN_SCROLL_PIXELS_COUNT_TO_SHOW_SCROLL_BUTTON,
+	SCROLLER_DEFAULT_OFFSET,
+	SCROLLER_CONFIG,
+} from './constants'
 
 const styles = theme => ({
 	mainWrapper: {
@@ -43,23 +54,36 @@ const styles = theme => ({
 		width: '100%',
 		backgroundColor: '#739AD9',
 	},
+	infoPageScrollWrapper: {
+		width: "100%",
+	},
 });
+
+const onNavigate = (pageName, offset = SCROLLER_DEFAULT_OFFSET) => {
+	scroller.scrollTo(pageName, {
+		...SCROLLER_CONFIG,
+		offset,
+	  });
+};
 
 const MainPage = (props) => {
 	const { classes } = props;
 	return (
-		<Grid container className={classes.mainWrapper} align="center">
+		<Grid name="TopOfPage" container className={classes.mainWrapper} align="center">
 			<Grid className={classes.title}>
-				<Header />
+				<Header 
+					navigationButtons={NAVIGATION_BUTTONS}
+					onNavigateButtonClick={onNavigate}
+				/>
 			</Grid>
-			<Grid container className={classes.header} direction="row" alignItems="space-between">
+			<Element name={PAGE_ANCHORS.ABOUT} className={classes.infoPageScrollWrapper}>
 				<Grid item xs={6} className={classes.headerText}>
 					<Typography>HEADER</Typography>
 				</Grid>
 				<Grid item xs={6} className={classes.headerImage}>
 					<img src={Avatar} alt="avatar" className={classes.avatar} />
 				</Grid>
-			</Grid>
+			</Element>
 			<Grid className={classes.mainContent}>
 				<Typography>
 					MAIN CONTENT
