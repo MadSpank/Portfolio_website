@@ -1,12 +1,12 @@
 import React from 'react';
 import { Element, scroller } from 'react-scroll';
 
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 import Avatar from '../static/avatar.jpg';
 
-import Header from '../components/Header'
+import WelcomeSection from '../components/WelcomeSection'
 
 import {
 	PAGE_ANCHORS,
@@ -22,75 +22,100 @@ const styles = theme => ({
 		height: '100vh',
 		width: '100vw',
 		backgroundColor: '#C6D2ED',
+		alignItems: 'space-between'
 	},
-	title: {
-		width: '100%',
-		backgroundColor: '#C6D2ED',
-		position: 'flex-end',
+	leftWrapper: {
+		position: 'relative',
+		width: '50vw',
+		alignItems: 'center',
 	},
-	header: {
-		width: '100%',
-		backgroundColor: '#C6D2ED',
-		position: 'flex-end',
+	rightWrapper: {
+		position: 'relative',
+		width: '50vw',
+		backgroundColor: 'rgba(255, 125, 0)'
 	},
-	headerText: {
-
+	itemWrapper: {
+		height: '100vh',
+		position: 'relative',
+		textAlign: 'center',
+		justifyContent: 'center',
 	},
-	headerImage: {
+	contactsWrapper: {
+		position: 'relative',
+		height: '100vh',
+		alingItems: 'center',
+		textAlign: 'center',
+		justifyContent: 'center',
 	},
-	avatar: {
-		height: 300,
-		width: 300,
-		borderRadius: '50%'
-	},
-	mainContent: {
-		height: '15vh',
-		width: '100%',
-		backgroundColor: '#C6D2ED',
-		position: 'flex-end',
-	},
-	footer: {
-		height: '15vh',
-		width: '100%',
-		backgroundColor: '#739AD9',
-	},
-	infoPageScrollWrapper: {
-		width: "100%",
-	},
+	buttonContainer: {
+		position: 'absolute',
+		width: 200,
+		height: 100,
+		top: '50vh',
+		left: '50vh',
+	}
 });
 
-const onNavigate = (pageName, offset = SCROLLER_DEFAULT_OFFSET) => {
-	scroller.scrollTo(pageName, {
-		...SCROLLER_CONFIG,
-		offset,
-	  });
-};
 
 const MainPage = (props) => {
 	const { classes } = props;
 	return (
-		<Grid name="TopOfPage" container className={classes.mainWrapper} align="center">
-			<Grid className={classes.title}>
-				<Header 
-					navigationButtons={NAVIGATION_BUTTONS}
-					onNavigateButtonClick={onNavigate}
-				/>
-			</Grid>
-			<Element name={PAGE_ANCHORS.ABOUT} className={classes.infoPageScrollWrapper}>
-				<Grid item xs={6} className={classes.headerText}>
-					<Typography>HEADER</Typography>
+		<Grid container className={classes.mainWrapper} direction="column">
+			<Grid container className={classes.leftWrapper}>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Typography>
+						Welcome
+					</Typography>
 				</Grid>
-				<Grid item xs={6} className={classes.headerImage}>
-					<img src={Avatar} alt="avatar" className={classes.avatar} />
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Typography>
+						Experience
+					</Typography>
 				</Grid>
-			</Element>
-			<Grid className={classes.mainContent}>
-				<Typography>
-					MAIN CONTENT
-				</Typography>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Typography>
+						About
+					</Typography>
+				</Grid>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Typography>
+						Contacts
+					</Typography>
+				</Grid>
 			</Grid>
-			<Grid item xs={12} className={classes.footer}>
-				<Typography>FOOTER</Typography>
+			<Grid container className={classes.buttonContainer} direction="row">
+				<Grid item xs={12} className={classes.btnUp}>
+					<Button>
+						Up
+					</Button>
+				</Grid>
+				<Grid item xs={12} className={classes.btnDown}>
+					<Button>
+						Down
+					</Button>
+				</Grid>
+			</Grid>
+			<Grid container className={classes.rightWrapper}>
+				<Grid item xs={12} className={classes.contactsWrapper}>
+					<Typography>
+						my contancts
+					</Typography>
+				</Grid>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Grid item>
+						<Typography>
+							cool guy
+						</Typography>
+					</Grid>
+				</Grid>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<Typography>
+						experience description
+					</Typography>
+				</Grid>
+				<Grid item xs={12} className={classes.itemWrapper}>
+					<WelcomeSection />
+				</Grid>
 			</Grid>
 		</Grid>
 	)
