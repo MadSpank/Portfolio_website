@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.App-body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+header {
+  height: 20vh;
+}
+
+div.navbar {
+  /* position:fixed; */
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #083451;
+  
+}
+
+Button {
+  border-radius: 1px solid red;
+}
+
+.sectionWrapper {
+  width: 100%;
+  text-align: center;
+  text-justify: center;
+
+}
+
+.sectionContent {
+  text-align: center;
+}
+
+.sectionWrapper {
+  height: 100vh;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+}
+
+.sectionWrapper:nth-child(1){
+  height: 90vh;
+  background: lightblue;
+}
+.sectionWrapper:nth-child(2){
+  background: red;
+}
+.sectionWrapper:nth-child(3){
+  background: blue;
+}
+.sectionWrapper:nth-child(4){
+  background: greenyellow;
+}
+
+.Button {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  background-color:rgba(16, 45, 64, 0.29);
+  /* height: 50px;
+  width: 50px;
+  background-color: #282c34; */
+  border-radius: 50%;
+}
