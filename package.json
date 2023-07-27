@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@material-ui/core": "4.2.0",
-    "mui": "^0.0.1",
-    "react-scroll": "^1.8.4"
-  }
-}
