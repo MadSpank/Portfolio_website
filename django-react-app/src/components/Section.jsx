@@ -7,6 +7,9 @@ export const Section = (props) => {
         <>
             <h2>{section.name}</h2>
             <div className='sectionContent'>{section.data}</div>
+            {section.pictures && section.pictures.map(picture =>
+                <img src={picture} alt='someImage' style={{width: "100%", height: "100%"}} />    
+            )}
         </>
   )
 }

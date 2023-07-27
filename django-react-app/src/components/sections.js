@@ -1,3 +1,5 @@
+import Me from '../Me.jpg';
+
 export const sections = [
     {
         name: "Welcome",
@@ -18,5 +20,6 @@ export const sections = [
         name: "AboutMe",
         data: "Bla bla bla bla bla bla bla bla bla bla",
         color: 'red',
+        pictures: [Me]
     }
 ];
