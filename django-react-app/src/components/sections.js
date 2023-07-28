@@ -12,7 +12,7 @@ export const sections = [
         color: 'green',
     },
     {
-        name: "Cotacts",
+        name: "Contacts",
         data: "Bla bla bla bla bla bla bla bla bla bla",
         color: 'yellow',
     },

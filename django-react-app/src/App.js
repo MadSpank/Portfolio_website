@@ -9,7 +9,7 @@ import './App.css';
 
 import { useState } from 'react';
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top:0,
+      top: 0,
       behavior: 'smooth',
     })
   }
@@ -41,31 +41,37 @@ function App() {
   window.addEventListener('scroll', toggleVisible);
 
     return (
-    <div className="App">
-      <div className='navbar'>
-        <nav>
-          {sections.map(section => 
+    <Grid className="App" container direction="column">
+      <Grid
+        className='navbar'
+        container
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+        rowSpacing={{ xs: 1, sm: 1, md: 1 }}
+        alignContent='center'
+        justifyContent='center'
+      >
+        {sections.map((section, index) => 
+          <Grid item md={2} xs={12}>
             <Button
               onClick={() => handleClick(`#${section.name.toLowerCase()}`)}
               key={section.name}
               style={{
-                border: '1px solid',
+                border: '2px solid',
                 color: 'white',
-                marginRight: '2%',
               }}
             >
-                {section.name}
+              {section.name}
             </Button>
-          )}
-        </nav>
-      </div>
-      <div className="App-body">
-        {sections.map(section =>
-          <div className='sectionWrapper' id={section.name.toLowerCase()} key={`section-${section.name}`}>
-            <Section section={section} />
-          </div>
+          </Grid>
         )}
-      </div>
+      </Grid>
+      <Grid className="App-body" direction="column">
+        {sections.map(section =>
+          <Grid className='sectionWrapper' id={section.name.toLowerCase()} key={`section-${section.name}`}>
+            <Section section={section} />
+          </Grid>
+        )}
+      </Grid>
       <Button
         onClick={scrollToTop}
         variant="contained"
@@ -73,16 +79,24 @@ function App() {
         style={{
           position: "sticky",
           display: visible ? "block" : 'none',
-          left: "85%",
+          justify: "center",
+          left: "90%",
           backgroundColor: "rgb(16, 45, 64, 0.5)",
           borderRadius: "15%",
           height: "15%",
           width: "5%",
         }}
       >
-        <ArrowCircleUpRoundedIcon onClick={scrollToTop} style={{display: visible ? "block" : 'none'}} variant="outlined"/>
+        <ArrowCircleUpRoundedIcon
+          onClick={scrollToTop}
+          style={{
+            display: visible ? "block" : 'none',
+            paddingLeft: "13%",
+          }}
+          variant="outlined"
+        />
       </Button>
-    </div>
+    </Grid>
   );
 }
 

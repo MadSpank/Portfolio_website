@@ -5,7 +5,7 @@
 
 .App-body {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,12 +18,10 @@ header {
   height: 20vh;
 }
 
-div.navbar {
-  /* position:fixed; */
-  height: 10vh;
-  align-items: center;
-  justify-content: center;
+.navbar {
+  height: 13vh;
   background-color: #083451;
+  border-bottom: 4px solid #f3f3f4;
   
 }
 
@@ -40,6 +38,8 @@ Button {
 
 .sectionContent {
   text-align: center;
+  top: auto;
+  left: auto;
 }
 
 .sectionWrapper {
@@ -50,17 +50,17 @@ Button {
 }
 
 .sectionWrapper:nth-child(1){
-  height: 90vh;
-  background: lightblue;
+  height: 88vh;
+  background: rgba(173, 216, 230, 0.801);
 }
 .sectionWrapper:nth-child(2){
-  background: red;
+  background: rgba(44, 75, 95, 0.2);
 }
 .sectionWrapper:nth-child(3){
-  background: blue;
+  background: rgb(43, 67, 96);
 }
 .sectionWrapper:nth-child(4){
-  background: greenyellow;
+  background: rgb(36, 71, 86);
 }
 
 .Button {
@@ -68,8 +68,5 @@ Button {
   right: 5%;
   bottom: 5%;
   background-color:rgba(16, 45, 64, 0.29);
-  /* height: 50px;
-  width: 50px;
-  background-color: #282c34; */
   border-radius: 50%;
 }
