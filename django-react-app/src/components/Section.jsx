@@ -36,11 +36,11 @@ const Section = (props) => {
             <Grid container justifyContent='center' className={classes.sectionContent}>
               {section.data}
             </Grid>
-            {section.pictures && section.pictures.map((picture, index) =>
+            {/* {section.pictures && section.pictures.map((picture, index) =>
               <Grid item className={classes.imgWrapper} alignItems='center' key={`img_${index}`}>
                 <img src={picture} alt='someImage' className={classes.img}/>
               </Grid>
-            )}
+            )} */}
         </Grid>
   )
 }

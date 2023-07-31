@@ -1,6 +1,7 @@
 
 
 import Section from './components/Section';
+import Navigation from './components/Navigation';
 
 
 import { sections } from './components/sections';
@@ -27,7 +28,7 @@ const styles = (theme) => ({
     justifyContent: 'center',
     fontSize: 'calc(10px + 2vmin)',
     color: 'white',
-    minHeight: '100%',
+    // minHeight: '100%',
   },
   mainWrapper: {},
   sectionWrapper: {
@@ -42,15 +43,6 @@ const styles = (theme) => ({
       '#2b4360',
       '#244756',
     ]
-  },
-  navbar: {
-    height: '12vh',
-    backgroundColor: '#083451',
-    borderBottom: '4px solid #f3f3f4',
-  },
-  navBtn: {
-    border: '2px solid',
-    color: 'white',
   },
   button: {
     position: 'absolute',
@@ -109,26 +101,10 @@ function App(props) {
 
     return (
     <Grid className={classes.app} container direction="column">
-      <Grid
-        className={classes.navbar}
-        container
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        rowSpacing={{ xs: 1, sm: 1, md: 1 }}
-        alignContent='center'
-        justifyContent='center'
-      >
-        {sections.map((section, index) => 
-          <Grid item md={2} xs={12} key={`${section.name}_gridWrapper`}>
-            <Button
-              onClick={() => handleClick(`#${section.name.toLowerCase()}`)}
-              key={`${section.name}_btn`}
-              className={classes.navBtn}
-            >
-              {section.name}
-            </Button>
-          </Grid>
-        )}
-      </Grid>
+      <Navigation
+        sections={sections}
+        handleClick={handleClick}
+      />
       <Grid className={classes.appBody} container direction="column">
         {sections.map((section, index) =>
           <Grid
@@ -144,27 +120,19 @@ function App(props) {
           </Grid>
         )}
       </Grid>
-      <Button
-        onClick={scrollToTop}
-        variant="contained"
-        className={classes.button}
-        style={{
-          position: "sticky",
-          display: visible ? "block" : 'none',
-          justify: "center",
-          left: "90%",
-          backgroundColor: "rgb(16, 45, 64, 0.5)",
-          borderRadius: "15%",
-          height: "15%",
-          width: "5%",
-        }}
-      >
-        <ArrowCircleUpRoundedIcon
-          onClick={scrollToTop}
-          style={{paddingLeft: '18%', display: visible ? "block" : 'none'}}
-          variant="outlined"
-        />
-      </Button>
+    <ArrowCircleUpRoundedIcon
+      onClick={scrollToTop}
+      variant='outlined'
+      fontSize='large'
+      style={{
+        paddingLeft: '18%',
+        display: visible ? "block" : 'none',
+        position: 'absolute',
+        right: '5%',
+        top: '23%'
+        
+      }}
+    />
     </Grid>
   );
 }
